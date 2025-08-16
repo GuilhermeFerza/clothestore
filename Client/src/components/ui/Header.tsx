@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo }) => {
   return (
     <>
       <div
-        className="sticky top-0 z-50 flex items-center justify-evenly px-6 shadow-md transition-colors duration-4000"
+        className="sticky top-0 z-50 flex w-full items-center justify-evenly px-6 shadow-md transition-colors duration-4000"
         style={{ backgroundColor: color }}
       >
         <div className="flex justify-center flex-1 max-w-[30%] basis-full">

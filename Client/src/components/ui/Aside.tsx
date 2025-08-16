@@ -18,7 +18,7 @@ export default function Aside() {
   };
 
   return (
-    <aside className="fixed top-28 z-20 flex flex-col min-w-52 w-[15%] bg-black text-white h-[calc(100dvh-7rem)] overflow-y-auto">
+    <aside className="z-20 flex flex-col min-w-52 w-[15%] bg-black text-white overflow-y-auto">
       <div className="flex flex-col">
         <button
           onClick={toggleFirstList}

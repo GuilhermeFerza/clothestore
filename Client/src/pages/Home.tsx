@@ -35,19 +35,19 @@ export default function Home() {
   return (
     <>
       <Header onScrollTo={handleScrollToSection} />
-      <div className="flex w-full">
-        <Aside />
-        <div className="relative w-full ml-[15%] flex flex-col">
-          <main>
-            <div className="w-full h-96 bg-black">
+      <div className="flex flex-col min-h-screen">
+          <div className="w-full h-96 bg-black">
               <img
                 src={carrouselImages[currentIndex]}
                 alt="imagem banner"
-                className={`w-full h-full object-cover transition-opacity duration-500 ${
+                className={`w-full h-96 object-cover transition-opacity duration-500 ${
                   fade ? "opacity-100" : "opacity-0"
                 }`}
               />
             </div>
+            <div className="flex flex-1 min-h-screen">
+          <Aside />
+          <main className="relative w-[85%] flex flex-col">
             <section className="p-6 flex flex-col gap-6 items-start">
               <h1 className="font-bold text-8xl">STAY URBAN. STAY BOLD.</h1>
               <h3 className="text-3xl">STREETWEAR</h3>
@@ -127,8 +127,9 @@ export default function Home() {
               </div>
             </section>
           </main>
+            </div>
+          
           <Footer />
-        </div>
       </div>
     </>
   );
