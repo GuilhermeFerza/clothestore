@@ -18,11 +18,11 @@ export default function Aside() {
   };
 
   return (
-    <aside className="fixed top-28 z-20 flex flex-col min-w-52 w-[15%] bg-white h-dvh">
+    <aside className="fixed top-28 z-20 flex flex-col min-w-52 w-[15%] bg-black text-white h-[calc(100dvh-7rem)] overflow-y-auto">
       <div className="flex flex-col">
         <button
           onClick={toggleFirstList}
-          className="font-bold text-left p-2 py-4 border transition hover:bg-gray-100 cursor-pointer flex justify-between items-center"
+          className="font-bold text-left p-2 py-4 border transition hover:bg-gray-950 cursor-pointer bg-black flex justify-between items-center"
         >
           Collections<span>{isFirstListOpen ? "▲" : "▼"}</span>
         </button>
@@ -34,28 +34,28 @@ export default function Aside() {
               : "border-[0px] max-h-0"
           }`}
         >
-          <ul className="flex flex-col">
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+          <ul className="flex flex-col bg-gray-950">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/" className="block h-full w-full">
                 Urban Essential
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer ">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer ">
               <Link to="/" className="block h-full w-full">
                 Oversized Fits
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/" className="block h-full w-full">
                 Limited Edition
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/" className="block h-full w-full">
                 Accessories
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border   hover:bg-gray-300 hover:cursor-pointer">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800   hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/" className="block h-full w-full">
                 Sneakers
               </Link>
@@ -67,7 +67,7 @@ export default function Aside() {
       <div className="flex flex-col">
         <button
           onClick={toggleSecondList}
-          className="font-bold text-left p-2 py-4 border transition hover:bg-gray-100 cursor-pointer flex justify-between items-center"
+          className="font-bold text-left p-2 py-4 border transition hover:bg-gray-950 cursor-pointer bg-black flex justify-between items-center"
         >
           Categories<span>{isSecondListOpen ? "▲" : "▼"}</span>
         </button>
@@ -79,28 +79,28 @@ export default function Aside() {
               : "border-[0px] max-h-0"
           }`}
         >
-          <ul className="flex flex-col">
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+          <ul className="flex flex-col bg-gray-950">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/new-arrivals" className="block h-full w-full">
                 New Arrivals
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer ">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer ">
               <Link to="/men" className="block h-full w-full">
                 Men's Collection
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/women" className="block h-full w-full">
                 Women's Collection
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/" className="block h-full w-full">
                 Accessories
               </Link>
             </li>
-            <li className="w-full h-full pl-3 py-2 transition border hover:bg-gray-300 hover:cursor-pointer">
+            <li className="w-full h-full pl-3 py-2 transition border border-gray-800 hover:bg-gray-900 hover:cursor-pointer">
               <Link to="/" className="block h-full w-full">
                 Sneakers
               </Link>
