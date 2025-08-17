@@ -8,6 +8,7 @@ import Carrousel from "../assets/images/Carrosel.jpg";
 import Carrousel1 from "../assets/images/Carrosel1.jpg";
 import Carrousel2 from "../assets/images/Carrosel2.jpg";
 import Carrousel3 from "../assets/images/Carrosel3.jpg";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const carrouselImages = [Carrousel, Carrousel1, Carrousel2, Carrousel3];
@@ -36,30 +37,34 @@ export default function Home() {
     <>
       <Header onScrollTo={handleScrollToSection} />
       <div className="flex flex-col min-h-screen">
-          <div className="w-full h-96 bg-black">
-              <img
-                src={carrouselImages[currentIndex]}
-                alt="imagem banner"
-                className={`w-full h-96 object-cover transition-opacity duration-500 ${
-                  fade ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </div>
+          <div className="relative w-full h-96 bg-black">
+          <img
+            src={carrouselImages[currentIndex]}
+            alt="imagem banner"
+            className={`w-full h-96 object-cover transition-opacity duration-500 ${
+              fade ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          {/* 2. Div para sobrepor o texto */}
+          {/* "absolute inset-0" faz com que ocupe todo o espaço do pai */}
+          {/* Flexbox para centralizar o conteúdo */}
+          <div className="absolute inset-0 flex flex-col justify-center items-start p-6 text-center text-white bg-black bg-opacity-30">
+            {/* 3. O conteúdo da antiga <section> foi movido para cá */}
+            <h1 className="font-bold text-8xl">STAY URBAN. STAY BOLD.</h1>
+            <h3 className="text-3xl mt-6">STREETWEAR</h3>
+            <p className="text-lg mt-6">
+              Born from{" "}
+              <span className="text-green-500 font-bold italic">Brazil</span>
+              's vibrant streets, we embody the true spirit of urban culture.
+            </p>
+            <button className="w-48 rounded font-semibold border-[2px] px-3 py-1 transition border-white mt-6 hover:bg-white hover:text-black">
+              SHOW NOW
+            </button>
+          </div>
+        </div>
             <div className="flex flex-1 min-h-screen">
           <Aside />
           <main className="relative w-[85%] flex flex-col">
-            <section className="p-6 flex flex-col gap-6 items-start">
-              <h1 className="font-bold text-8xl">STAY URBAN. STAY BOLD.</h1>
-              <h3 className="text-3xl">STREETWEAR</h3>
-              <p className="text-lg">
-                Born from{" "}
-                <span className="text-green-500 font-bold italic">Brazil</span>
-                's vibrant streets, we embody the true spirit of urban culture.
-              </p>
-              <button className="w-48 rounded font-semibold border-[2px] px-3 py-1 transition border-black hover:bg-black hover:text-white">
-                SHOW NOW
-              </button>
-            </section>
             <section id="about" className="mt-20 p-6">
               <h1 className="font-bold uppercase text-xl">Welcome</h1>
               <p>
@@ -121,8 +126,8 @@ export default function Home() {
                   </li>
                 </ul>
                 <p className="max-w-xs">
-                  For quick answers, check out our FAQ (Frequently Asked
-                  Questions).
+                  For quick answers, check out our FAQ (<Link to="/faq"><span className="text-blue-500">Frequently Asked
+                  Questions</span>.</Link>)
                 </p>
               </div>
             </section>

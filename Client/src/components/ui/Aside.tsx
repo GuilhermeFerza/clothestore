@@ -22,7 +22,7 @@ export default function Aside() {
       <div className="flex flex-col">
         <button
           onClick={toggleFirstList}
-          className="font-bold text-left p-2 py-4 border transition hover:bg-gray-950 cursor-pointer bg-black flex justify-between items-center"
+          className="font-bold text-left pl-6 pr-2 py-4 border transition hover:bg-gray-950 cursor-pointer bg-black flex justify-between items-center"
         >
           Collections<span>{isFirstListOpen ? "▲" : "▼"}</span>
         </button>
@@ -67,7 +67,7 @@ export default function Aside() {
       <div className="flex flex-col">
         <button
           onClick={toggleSecondList}
-          className="font-bold text-left p-2 py-4 border transition hover:bg-gray-950 cursor-pointer bg-black flex justify-between items-center"
+          className="font-bold text-left pl-6 pr-2 py-4 border transition hover:bg-gray-950 cursor-pointer bg-black flex justify-between items-center"
         >
           Categories<span>{isSecondListOpen ? "▲" : "▼"}</span>
         </button>
