@@ -2,35 +2,33 @@ import { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo.png";
 import Cart from "../modals/Cart.tsx";
 import { Link } from "react-router-dom";
+import { Menu, X, ShoppingCart } from 'lucide-react';
 
 interface HeaderProps {
   onScrollTo: (sectionId: string) => void;
+  onToggleMenu: () => void;
+  isMenuOpen: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ onScrollTo }) => {
+const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen }) => {
   const navItems = ["About", "Contact"];
-  const [color, setColor] = useState("#F4F4F4");
-  const handleScroll = () => {
-    if (window.scrollY > 120) {
-      setColor("#f0fff0"); // Se a página foi rolada, define a cor para verde
-    } else {
-      setColor("#F4F4F4"); // Se a página estiver no topo, define a cor de volta para branco
-    }
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [cart, setCart] = useState(false);
+
+  // --- ALTERAÇÃO 1: Definimos as classes de animação em uma constante ---
+  const navLinkClasses = "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full";
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavClick = (itemName: string) => {
     onScrollTo(itemName.toLowerCase());
   };
-  const [cart, setCart] = useState(false);
 
   const handleCartClick = () => {
     setCart((prev) => !prev);
@@ -38,74 +36,55 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo }) => {
 
   return (
     <>
-      <div
-        className="sticky top-0 z-50 flex w-full items-center justify-evenly px-6 shadow-md transition-colors duration-4000"
-        style={{ backgroundColor: color }}
+      <header
+        className={`sticky top-0 z-30 flex w-full items-center justify-between px-4 sm:px-6 py-2 shadow-md transition-all duration-300 ${
+          isScrolled ? "bg-white/95 backdrop-blur-sm" : "bg-[#F4F4F4]"
+        }`}
       >
-        <div className="flex justify-center flex-1 max-w-[30%] basis-full">
-          <ul className="flex justify-evenly w-full text-xl">
-            <Link to="/new-arrivals">
-              <li className="transition hover:scale-[105%]">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-                  New Arrivals
-                </span>
-              </li>
-            </Link>
-            <Link to="/men">
-              <li className="transition hover:scale-[105%]">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-                  Men
-                </span>
-              </li>
-            </Link>
-            <Link to="/women">
-              <li className="transition hover:scale-[105%]">
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-                  Women
-                </span>
-              </li>
-            </Link>
-          </ul>
+        <div className="lg:hidden">
+          <button onClick={onToggleMenu} className="p-2">
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
-        <div className="flex justify-center flex-1 max-w-[30%] basis-full">
+
+        <nav className="hidden lg:flex flex-1 justify-start">
+          <ul className="flex items-center gap-6 text-base font-medium">
+            {/* --- ALTERAÇÃO 2: Aplicamos as classes aos Links --- */}
+            <li><Link to="/new-arrivals" className={navLinkClasses}>New Arrivals</Link></li>
+            <li><Link to="/men" className={navLinkClasses}>Men</Link></li>
+            <li><Link to="/women" className={navLinkClasses}>Women</Link></li>
+          </ul>
+        </nav>
+
+        <div className="flex justify-center lg:flex-1">
           <Link to="/">
-            <img
-              src={Logo}
-              alt="Lumo"
-              className="h-auto max-h-28 flex items-center justify-center w-auto"
-            />
+            <img src={Logo} alt="NOIR Logo" className="h-12 lg:h-20 w-auto" />
           </Link>
         </div>
-        {/* Seção Direita: Ações e Busca */}
-        <div className="flex justify-center flex-1 max-w-[30%] basis-full">
-          <ul className="flex justify-evenly w-full text-xl">
-            {/* 4. Mapeamos a lista para renderizar os `li`s dinamicamente. */}
-            {navItems.map((item) => (
-              <li
-                key={item} // Chave única para cada item da lista (essencial no React)
-                onClick={() => handleNavClick(item)}
-                className="cursor-pointer transition hover:scale-[105%]"
-              >
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-                  {item}
-                </span>
-              </li>
-            ))}
-            <li className="cursor-pointer transition hover:scale-[105%]">
-              <button onClick={handleCartClick}>
-                <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-                  Cart
-                </span>
-              </button>
-            </li>
-          </ul>
-          <input
-            type="search"
-            className="focus:outline-none rounded w-full border-[2px] px-2"
-          />
-        </div>
-      </div>
 
+        <div className="flex flex-1 justify-end items-center gap-4">
+          <nav className="hidden lg:flex">
+            <ul className="flex items-center gap-6 text-base font-medium">
+              {navItems.map((item) => (
+                <li key={item} onClick={() => handleNavClick(item)} className="cursor-pointer">
+                  {/* --- ALTERAÇÃO 3: Adicionamos um <span> para aplicar o efeito --- */}
+                  <span className={navLinkClasses}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          
+          <div className="hidden lg:block w-32">
+             <input type="search" placeholder="Search..." className="w-full border-b-2 bg-transparent focus:outline-none focus:border-black transition-all px-1 py-0.5 text-sm" />
+          </div>
+
+          <button onClick={handleCartClick} className="p-2 relative">
+             <ShoppingCart size={26} />
+          </button>
+        </div>
+      </header>
       {cart && <Cart onClose={() => setCart(false)} />}
     </>
   );
