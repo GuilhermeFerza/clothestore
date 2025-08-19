@@ -15,7 +15,6 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen })
   const [isScrolled, setIsScrolled] = useState(false);
   const [cart, setCart] = useState(false);
 
-  // --- ALTERAÇÃO 1: Definimos as classes de animação em uma constante ---
   const navLinkClasses = "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full";
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen })
 
         <nav className="hidden lg:flex flex-1 justify-start">
           <ul className="flex items-center gap-6 text-base font-medium">
-            {/* --- ALTERAÇÃO 2: Aplicamos as classes aos Links --- */}
             <li><Link to="/new-arrivals" className={navLinkClasses}>New Arrivals</Link></li>
             <li><Link to="/men" className={navLinkClasses}>Men</Link></li>
             <li><Link to="/women" className={navLinkClasses}>Women</Link></li>
@@ -67,7 +65,6 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen })
             <ul className="flex items-center gap-6 text-base font-medium">
               {navItems.map((item) => (
                 <li key={item} onClick={() => handleNavClick(item)} className="cursor-pointer">
-                  {/* --- ALTERAÇÃO 3: Adicionamos um <span> para aplicar o efeito --- */}
                   <span className={navLinkClasses}>
                     {item}
                   </span>
