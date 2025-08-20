@@ -84,7 +84,7 @@ export default function Men() {
               </h2>
               <p className="text-lg mt-6 text-gray-800 leading-relaxed text-center lg:text-left">
                 Embrace your authentic style with our{" "}
-                <span className="text-blue-500 font-bold italic">
+                <span className="text-blue-400 font-bold italic">
                   Brazilian streetwear
                 </span>{" "}
                 men's fashion line
@@ -105,7 +105,7 @@ export default function Men() {
                       alt="Men's Fashion Item 1"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 left-4 bg-blue-200 text-[#0F0F0F] px-3 py-1 rounded-full text-sm font-bold">
                       HOT
                     </div>
                   </div>
@@ -128,7 +128,7 @@ export default function Men() {
                       alt="Men's Fashion Item 2"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 left-4 bg-blue-200 text-[#0F0F0F] px-3 py-1 rounded-full text-sm font-bold">
                       NEW
                     </div>
                   </div>
@@ -151,7 +151,7 @@ export default function Men() {
                       alt="Men's Fashion Item 3"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 left-4 bg-blue-200 text-[#0F0F0F] px-3 py-1 rounded-full text-sm font-bold">
                       SALE
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export default function Men() {
                   collection offers versatile pieces that reflect your unique
                   personality and lifestyle.
                 </p>
-                <button className="bg-blue-600 text-white px-8 py-3 rounded font-semibold hover:bg-blue-700 transition-colors">
+                <button className="bg-blue-200 text-[#0F0F0F] px-8 py-3 rounded font-semibold hover:bg-blue-700 hover:text-white transition-colors">
                   Explore Styles
                 </button>
               </div>

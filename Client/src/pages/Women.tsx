@@ -84,7 +84,7 @@ export default function Women() {
               </h2>
               <p className="text-lg mt-6 text-gray-800 leading-relaxed text-center lg:text-left">
                 Express your unique style with our{" "}
-                <span className="text-pink-500 font-bold italic">
+                <span className="text-pink-400 font-bold italic">
                   Brazilian-inspired
                 </span>{" "}
                 women's fashion line
@@ -105,7 +105,7 @@ export default function Women() {
                       alt="Women's Fashion Item 1"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 left-4 bg-pink-100 text-[#0F0F0F] px-3 py-1 rounded-full text-sm font-bold">
                       HOT
                     </div>
                   </div>
@@ -126,7 +126,7 @@ export default function Women() {
                       alt="Women's Fashion Item 2"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 left-4  bg-pink-100 text-[#0F0F0F] px-3 py-1 rounded-full text-sm font-bold">
                       NEW
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default function Women() {
                       alt="Women's Fashion Item 3"
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-4 left-4  bg-pink-100 text-[#0F0F0F] px-3 py-1 rounded-full text-sm font-bold">
                       SALE
                     </div>
                   </div>
@@ -169,7 +169,7 @@ export default function Women() {
               <h2 className="font-bold text-3xl lg:text-4xl text-center mb-8">
                 Style Guide
               </h2>
-              <div className="bg-pink-50 rounded-lg p-8 text-center">
+              <div className="bg-stone-200 rounded-lg p-8 text-center">
                 <h3 className="font-bold text-2xl mb-4 text-pink-800">
                   Discover Your Perfect Look
                 </h3>
@@ -178,7 +178,7 @@ export default function Women() {
                   collection offers versatile pieces that adapt to your
                   lifestyle and mood.
                 </p>
-                <button className="bg-pink-600 text-white px-8 py-3 rounded font-semibold hover:bg-pink-700 transition-colors">
+                <button className=" bg-pink-100 text-[#0F0F0F] px-8 py-3 rounded font-semibold hover:bg-pink-600 hover:text-white transition-colors">
                   Explore Styles
                 </button>
               </div>
