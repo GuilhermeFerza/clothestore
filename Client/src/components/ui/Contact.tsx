@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 
 export default function Contact() {
+  const location = useLocation();
+  const isFaqPage = location.pathname === "/faq";
+
   return (
     <>
       <h2 className="font-bold uppercase text-2xl lg:text-3xl text-center">
@@ -39,15 +42,17 @@ export default function Contact() {
             @noir.br
           </li>
         </ul>
-        <p className="max-w-xs text-center lg:text-left">
-          For quick answers, check out our FAQ (
-          <Link to="/faq">
-            <span className="text-blue-500 relative after:content-[''] after:absolute after:bottom-[-0.02rem] after:left-[0.10rem] after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-[calc(100%-0.2rem)]">
-              Frequently Asked Questions
-            </span>
-          </Link>
-          ).
-        </p>
+        {!isFaqPage && (
+          <p className="max-w-xs text-center lg:text-left">
+            For quick answers, check out our FAQ (
+            <Link to="/faq">
+              <span className="text-blue-500 relative after:content-[''] after:absolute after:bottom-[-0.02rem] after:left-[0.10rem] after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-[calc(100%-0.2rem)]">
+                Frequently Asked Questions
+              </span>
+            </Link>
+            ).
+          </p>
+        )}
       </div>
     </>
   );
