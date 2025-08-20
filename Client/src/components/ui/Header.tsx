@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo.png";
 import Cart from "../modals/cart.tsx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ShoppingCart } from "lucide-react";
 
 interface HeaderProps {
@@ -37,6 +37,9 @@ const Header: React.FC<HeaderProps> = ({
   const handleCartClick = () => {
     setCart((prev) => !prev);
   };
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <>
@@ -84,15 +87,16 @@ const Header: React.FC<HeaderProps> = ({
         <div className="flex flex-1 justify-end items-center gap-4">
           <nav className="hidden lg:flex">
             <ul className="flex items-center gap-6 text-base font-medium">
-              {navItems.map((item) => (
-                <li
-                  key={item}
-                  onClick={() => handleNavClick(item)}
-                  className="cursor-pointer"
-                >
-                  <span className={navLinkClasses}>{item}</span>
-                </li>
-              ))}
+              {isHomePage &&
+                navItems.map((item) => (
+                  <li
+                    key={item}
+                    onClick={() => handleNavClick(item)}
+                    className="cursor-pointer"
+                  >
+                    <span className={navLinkClasses}>{item}</span>
+                  </li>
+                ))}
             </ul>
           </nav>
 
