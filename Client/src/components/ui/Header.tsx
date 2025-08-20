@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo.png";
-import Cart from "../modals/Cart.tsx";
+import Cart from "../modals/cart.tsx";
 import { Link } from "react-router-dom";
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart } from "lucide-react";
 
 interface HeaderProps {
   onScrollTo: (sectionId: string) => void;
@@ -10,12 +10,17 @@ interface HeaderProps {
   isMenuOpen: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen }) => {
+const Header: React.FC<HeaderProps> = ({
+  onScrollTo,
+  onToggleMenu,
+  isMenuOpen,
+}) => {
   const navItems = ["About", "Contact"];
   const [isScrolled, setIsScrolled] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const navLinkClasses = "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full";
+  const navLinkClasses =
+    "relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,15 +53,31 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen })
 
         <nav className="hidden lg:flex flex-1 justify-start">
           <ul className="flex items-center gap-6 text-base font-medium">
-            <li><Link to="/new-arrivals" className={navLinkClasses}>New Arrivals</Link></li>
-            <li><Link to="/men" className={navLinkClasses}>Men</Link></li>
-            <li><Link to="/women" className={navLinkClasses}>Women</Link></li>
+            <li>
+              <Link to="/new-arrivals" className={navLinkClasses}>
+                New Arrivals
+              </Link>
+            </li>
+            <li>
+              <Link to="/men" className={navLinkClasses}>
+                Men
+              </Link>
+            </li>
+            <li>
+              <Link to="/women" className={navLinkClasses}>
+                Women
+              </Link>
+            </li>
           </ul>
         </nav>
 
         <div className="flex justify-center lg:flex-1">
           <Link to="/">
-            <img src={Logo} alt="NOIR Logo" className="h-12 lg:h-20 w-auto" />
+            <img
+              src={Logo}
+              alt="NOIR Logo"
+              className="h-12 lg:h-20 w-auto hover:scale-105 transition-all duration-300"
+            />
           </Link>
         </div>
 
@@ -64,21 +85,27 @@ const Header: React.FC<HeaderProps> = ({ onScrollTo, onToggleMenu, isMenuOpen })
           <nav className="hidden lg:flex">
             <ul className="flex items-center gap-6 text-base font-medium">
               {navItems.map((item) => (
-                <li key={item} onClick={() => handleNavClick(item)} className="cursor-pointer">
-                  <span className={navLinkClasses}>
-                    {item}
-                  </span>
+                <li
+                  key={item}
+                  onClick={() => handleNavClick(item)}
+                  className="cursor-pointer"
+                >
+                  <span className={navLinkClasses}>{item}</span>
                 </li>
               ))}
             </ul>
           </nav>
-          
+
           <div className="hidden lg:block w-32">
-             <input type="search" placeholder="Search..." className="w-full border-b-2 bg-transparent focus:outline-none focus:border-black transition-all px-1 py-0.5 text-sm" />
+            <input
+              type="search"
+              placeholder="Search..."
+              className="w-full border-b-2 bg-transparent focus:outline-none focus:border-black transition-all px-1 py-0.5 text-sm"
+            />
           </div>
 
           <button onClick={handleCartClick} className="p-2 relative">
-             <ShoppingCart size={26} />
+            <ShoppingCart size={26} />
           </button>
         </div>
       </header>
