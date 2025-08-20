@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import roupa1 from "../assets/images/phroupa1.png";
 import roupa2 from "../assets/images/phroupa2.png";
 import roupa3 from "../assets/images/phroupa3.png";
-import banner from "../assets/images/Carrosel1.jpg";
+import banner from "../assets/images/WomenSection.png";
 import Contact from "../components/ui/Contact.tsx";
 
 export default function Women() {
@@ -64,7 +64,7 @@ export default function Women() {
               WOMEN
             </h1>
             <h3 className="text-xl lg:text-3xl mt-4 italic select-none">
-              EMPOWERED STYLE
+              Discover styles that celebrate your unique spirit.
             </h3>
             <p className="text-lg mt-4 max-w-2xl px-4">
               Discover our exclusive collection designed for the modern woman
