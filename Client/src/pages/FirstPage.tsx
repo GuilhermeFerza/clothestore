@@ -2,7 +2,7 @@ import Header from "../components/ui/Header.tsx";
 import Footer from "../components/ui/Footer.tsx";
 import Contact from "../components/ui/Contact.tsx";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 
 // Imagens para o carrossel e produtos
@@ -18,7 +18,7 @@ export default function FirstPage() {
   const carrouselImages = [Carrousel, Carrousel1, Carrousel2, Carrousel3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
-
+  const navigate = useNavigate();
   // Lógica do menu mobile
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -93,7 +93,7 @@ export default function FirstPage() {
                   EXPLORE COLLECTION
                 </button>
               </Link>
-              <Link to="/newarrivals">
+              <Link to="/new-arrivals">
                 <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
                   NEW ARRIVALS
                 </button>
