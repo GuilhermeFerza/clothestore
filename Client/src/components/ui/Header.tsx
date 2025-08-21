@@ -50,11 +50,39 @@ const Header: React.FC<HeaderProps> = ({
           isScrolled ? "bg-white/95 backdrop-blur-sm" : "bg-[#F4F4F4]"
         }`}
       >
-        <div className="lg:hidden">
-          <button onClick={onToggleMenu} className="p-2">
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+        {!isFirstPage && (
+          <div className="lg:hidden">
+            <button onClick={onToggleMenu} className="p-2">
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        )}
+
+        {!isFirstPage && (
+          <nav
+            className={`hidden lg:flex flex-1 justify-start ${
+              isFirstPage ? "hidden" : ""
+            }`}
+          >
+            <ul className="flex items-center gap-6 text-base font-medium">
+              <li>
+                <Link to="/new-arrivals" className={navLinkClasses}>
+                  New Arrivals
+                </Link>
+              </li>
+              <li>
+                <Link to="/men" className={navLinkClasses}>
+                  Men
+                </Link>
+              </li>
+              <li>
+                <Link to="/women" className={navLinkClasses}>
+                  Women
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        )}
 
         <div className="flex justify-center lg:flex-1">
           <Link to="/">
