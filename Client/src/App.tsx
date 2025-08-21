@@ -1,4 +1,3 @@
-import react from "react";
 import FirstPage from "./pages/FirstPage.tsx";
 import Men from "./pages/Men.tsx";
 import Women from "./pages/Women.tsx";
